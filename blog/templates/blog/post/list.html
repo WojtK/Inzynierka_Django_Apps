@@ -1,0 +1,26 @@
+{% extends "blog/base.html" %}
+
+{% block title %} WIT 2020/2021 {% endblock %}
+
+{% block content %}
+<h1>Mój blog</h1>
+{% if tag %}
+    <h2>Posts tagged with "{{ tag.name }}"</h2>
+  {% endif %}
+{% for post in posts %}
+<h2>
+    <a href="{{post.get_absolute_url}}" id="blog_post">
+      {{ post.title}}
+    </a>
+</h2>
+<p class="tags">
+      Tagi:
+       {{ post.tags.all|join:", "}}
+    </p>
+<p class = "date" id="public_date">
+    Opublikowany {{ post.publish }} przez {{post.author}}
+</p>
+{{post.body|truncatewords:30|linebreaks}}
+{% endfor %}
+{% include "pagination.html" with page=posts %}
+{% endblock %}
