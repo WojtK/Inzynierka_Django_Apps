@@ -1,0 +1,7 @@
+**/.idea/
+/out/production/
+**/*.jpg
+**/*.png
+**/j9ccxzph.Testy
+**/logfile2.log
+**/db.sqlite3
