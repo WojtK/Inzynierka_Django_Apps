@@ -64,7 +64,7 @@ ol {
 }
 
 #header ul.menu li.selected a, #header ul.menu li.selected a:hover {
-    color:blue;
+    color:black;
     font-weight:bold;
 }
 
