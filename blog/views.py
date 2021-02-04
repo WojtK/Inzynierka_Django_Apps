@@ -146,3 +146,7 @@ class CommentViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+
+#class LoginViewSet(viewsets.ModelViewSet):
+

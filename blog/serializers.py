@@ -26,3 +26,9 @@ class CommentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Comment
         fields = ['name', 'email', 'post', 'created', 'active']
+
+
+class LoginSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Comment
+        fields = ['name', 'email', 'post', 'created', 'active']
