@@ -5,7 +5,7 @@
         {% endif %}
 
         <span class="current" id = "current_page">
-            Strona {{ page.number }} of {{ page.paginator.num_pages }}.
+            Strona {{ page.number }} z {{ page.paginator.num_pages }}.
         </span>
 
         {% if page.has_next %}

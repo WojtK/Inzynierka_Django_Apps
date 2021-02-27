@@ -10,8 +10,10 @@ p {
     line-height: 1.8;
 }
 footer {
+    height: 50px;
+    margin-top: 300px;
   text-align: center;
-  bottom: 0;
+
   background-color: black;
   color: white;
 }
