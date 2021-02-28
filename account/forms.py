@@ -34,4 +34,4 @@ class UserEditForm(forms.ModelForm):
 class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ()
+        fields = ('date_of_birth',)
