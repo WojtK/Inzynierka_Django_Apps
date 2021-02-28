@@ -3,11 +3,11 @@ from .models import Comment
 
 
 class EmailPostForm(forms.Form):
-    imie = forms.CharField(max_length=25)
+    name = forms.CharField(label="Imie",max_length=25)
     email = forms.EmailField()
-    do = forms.EmailField()
-    komentarz = forms.CharField(required=False,
-                                widget=forms.Textarea)
+    to = forms.EmailField(label="Adresat")
+    comments = forms.CharField(label="Komentarz",required=False,
+                               widget=forms.Textarea)
 
 
 class CommentForm(forms.ModelForm):
