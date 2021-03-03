@@ -39,9 +39,8 @@ class Post(models.Model):
                              self.publish.strftime('%d'),
                              self.slug])
 
-
-class Meta:
-    ordering = ('-publish',)
+    class Meta:
+        ordering = ('-publish',)
 
 
 def __str__(self):

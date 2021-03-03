@@ -1,8 +1,12 @@
 from django.http import HttpResponse
-from django.shortcuts import render
-from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.urls import reverse
+from rest_framework import permissions
+from rest_framework.authtoken.serializers import AuthTokenSerializer
+from knox.views import LoginView as KnoxLoginView
 from .models import Profile
 from .forms import LoginForm, UserRegistrationForm, \
                    UserEditForm, ProfileEditForm
@@ -61,6 +65,12 @@ def register(request):
 
 
 @login_required
+def log_out(request):
+    logout(request)
+    return redirect(reverse('dashboard'))
+
+
+@login_required
 def edit(request):
     if request.method == 'POST':
         user_form = UserEditForm(instance=request.user,
@@ -82,3 +92,7 @@ def edit(request):
                   'account/edit.html',
                   {'user_form': user_form,
                    'profile_form': profile_form})
+
+
+
+

@@ -17,18 +17,27 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+
+
 from blog import views
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework import routers
-
+from knox import views as knox_views
+from blog.views import RegisterAPI, LoginAPI
 
 router = routers.DefaultRouter()
 router.register(r"users", views.UserViewSet)
 router.register(r"groups", views.GroupViewSet)
 router.register(r"posts", views.PostViewSet)
-router.register("comments", views.CommentViewSet)
+router.register(r"comments", views.CommentViewSet)
+router.register(r"profiles", views.ProfileViewSet)
 
 urlpatterns = [
+    path('api/login/', LoginAPI.as_view(), name='login'),
+    path('api/logout/', knox_views.LogoutView.as_view(), name='logout'),
+    path('api/logoutall/', knox_views.LogoutAllView.as_view(), name='logoutall'),
+    path('api/register/', RegisterAPI.as_view(), name='register'),
+    path('rest-auth/', include('rest_auth.urls')),
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls', namespace='blog')),
     path('account/', include('account.urls')),
