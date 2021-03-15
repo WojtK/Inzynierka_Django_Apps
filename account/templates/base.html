@@ -7,26 +7,26 @@
 </head>
 <body>
   <div id="header">
-    <span class="logo">Kremówki u papaja</span>
+    <span class="logo">WIT Wojciech Kucharek</span>
     {% if request.user.is_authenticated %}
     <ul class="menu">
       <li {% if section == "dashboard" %}class="selected"{% endif %}>
-        <a href="{% url "dashboard" %}">Moja strona główna</a>
+        <a href="{% url "dashboard" %}" id="dashboard">Moja strona główna</a>
       </li>
       <li {% if section == "blog" %}class="selected"{% endif %}>
-        <a href="{% url "blog:post_list" %}">Blog</a>
+        <a href="{% url "blog:post_list" %}" id="blog">Blog</a>
       </li>
       <li {% if section == "Konto" %}class="selected"{% endif %}>
-        <a href="{% url "edit" %}">Twoje konto</a>
+        <a href="{% url "edit" %}" id="account_edit">Twoje konto</a>
       </li>
     </ul>
   {% endif %}
   <span class="user">
     {% if request.user.is_authenticated %}
       Hello {{ request.user.first_name }},
-      <a href="{% url "logout" %}">Wyloguj</a>
+      <a href="{% url "logout" %}" id="logout">Wyloguj</a>
     {% else %}
-      <a href="{% url "login" %}">Zaloguj</a>
+      <a href="{% url "login" %}" id="log_in">Zaloguj</a>
     {% endif %}
   </span>
   </div>

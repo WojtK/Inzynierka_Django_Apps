@@ -4,5 +4,5 @@
 
 {% block content %}
   <h1>Witaj {{ new_user.first_name }}!</h1>
-  <p>Twoje konto zostało pomyślnie stworzone. Możesz teraz <a href="{% url "login" %}">zalogować się</a>.</p>
+  <p>Twoje konto zostało pomyślnie stworzone. Możesz teraz <a href="{% url "login" %}" id="log_in">zalogować się</a>.</p>
 {% endblock %}

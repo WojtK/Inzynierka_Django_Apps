@@ -5,20 +5,20 @@
 {% block content %}
   <h1>Logowanie</h1>
   {% if form.errors %}
-    <p>
+    <p id="incorrect_login">
       Login lub hasło są nieprawidłowe.
       Spróbuj ponownie.
     </p>
   {% else %}
-    <p>Zaloguj się poprzez poniższy formularz. Jeśli nie posiadasz konta,  <a href="{% url "register" %}">zarejestruj się.</a></p>
+    <p>Zaloguj się poprzez poniższy formularz. Jeśli nie posiadasz konta,  <a href="{% url "register" %}" id="register">zarejestruj się.</a></p>
   {% endif %}
   <div class="login-form">
     <form action="{% url 'login' %}" method="post">
       {{ form.as_p }}
       {% csrf_token %}
       <input type="hidden" name="next" value="{{ next }}" />
-      <p><input type="submit" value="Zaloguj się"></p>
+      <p><input type="submit" value="Zaloguj się" id="log_in_btn"></p>
     </form>
-    <p><a href="{% url "password_reset" %}">Zapomniałeś hasła?</a></p>
+    <p><a href="{% url "password_reset" %}" id="forgot_pass">Zapomniałeś hasła?</a></p>
   </div>
 {% endblock %}

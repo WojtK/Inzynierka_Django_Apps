@@ -4,5 +4,5 @@
 
 {% block content %}
   <h1>Strona główna</h1>
-  <p>Witaj na stronie głównej. Możesz <a href="{% url "edit" %}">edytować swój profil</a> albo <a href="{% url "password_change" %}">zmienić hasło</a>.</p>
+  <p>Witaj na stronie głównej. Możesz <a href="{% url "edit" %}" id="account_edit">edytować swój profil</a> albo <a href="{% url "password_change" %}" id="pass_change_dashboard">zmienić hasło</a>.</p>
 {% endblock %}
