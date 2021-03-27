@@ -9,11 +9,11 @@
       "{{ post.title }}" został pomyślnie wysłany do {{ form.cleaned_data.to }}.
     </p>
   {% else %}
-    <h1>Udostępnij "{{ post.title }}"</h1>
+    <h1 id="post_share">Udostępnij "{{ post.title }}"</h1>
     <form method="post">
       {{ form.as_p }}
       {% csrf_token %}
-      <input type="submit" value="Wyślij">
+      <input type="submit" value="Wyślij" id="send_post">
     </form>
   {% endif %}
 {% endblock %}

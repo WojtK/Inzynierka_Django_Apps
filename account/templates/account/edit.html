@@ -5,10 +5,10 @@
 {% block content %}
   <h1>Edytuj swoje konto</h1>
   <p>Możesz edytować swoje konto przy pomocy poniższych opcji:</p>
-  <form method="post" enctype="multipart/form-data">
+  <form method="post" enctype="multipart/form-data" id="account_edit_form">
     {{ user_form.as_p }}
     {{ profile_form.as_p }}
     {% csrf_token %}
-    <p><input type="submit" value="Zapisz zmiany"></p>
+    <p><input type="submit" value="Zapisz zmiany" id="save_changes_btn"></p>
   </form>
 {% endblock %}

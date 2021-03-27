@@ -5,9 +5,9 @@
 {% block content %}
   <h1>Stwórz konto</h1>
   <p>Zarejestruj się poprzez poniższe opcje:</p>
-  <form method="post">
+  <form method="post" id="register_form">
     {{ user_form.as_p }}
     {% csrf_token %}
-    <p><input type="submit" value="Utwórz konto"></p>
+    <p><input type="submit" value="Utwórz konto" id="register_btn"></p>
   </form>
 {% endblock %}
